@@ -40,7 +40,7 @@
 			      <span class="pull-right">▲</span>
 			    </ng-template>
 			    <ng-template ngbPanelContent>
-				      <form (ngSubmit)="onGetHotelesPorEstrella()" #f="ngFormStar" novalidate>
+				      <form (ngSubmit)="onGetHotelesPorEstrella()" #f="ngForm" novalidate>
 				      <div class="check">	
 					  <div class="form-check">
 					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck($event)" [checked]="isChecked" ng-click='onGetHotelesAll()' >
