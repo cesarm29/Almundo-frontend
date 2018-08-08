@@ -18,17 +18,18 @@ export class CommonService {
   //service to mysql get hotels for name
   getHotelesForName(name){ 
     var body = "name=" + name ;
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = new RequestOptions({ headers: headers });     
     return this.http.post('http://localhost:3100/hotelesPorNombre/', body, options)  
             .map((response: Response) =>response.json())              
   }
 
 
+
   //service to mysql get hotels for star
   getHotelesForStar(star){ 
     var body = "star=" + star ;
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     let options = new RequestOptions({ headers: headers });     
     return this.http.post('http://localhost:3100/hotelesPorEstrella/', body, options)  
             .map((response: Response) =>response.json())              

@@ -12,7 +12,10 @@ var pool        = mysql.createPool({
 
 
 // Initialize the app
-const app = express();
+const app = express()
+app.use(bodyParser());  
+app.use(bodyParser.json({limit:'5mb'}));   
+app.use(bodyParser.urlencoded({extended:true})); 
 //access cors  
 app.use(function (req, res, next) {        
      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');    
@@ -39,7 +42,7 @@ app.get('/hoteles', function (req, res) {
 app.post('/hotelesPorNombre', function (req, res) {
   var body = req.body;
 pool.getConnection(function (err, connection) {
-        connection.query("SELECT * FROM hoteles where name = '?' ", body.name, function (err, rows) {
+        connection.query("SELECT * FROM hoteles where name = ?  ", body.name, function (err, rows) {
             connection.release();
             if (err) throw err;
             console.log(rows.length);
@@ -52,7 +55,7 @@ pool.getConnection(function (err, connection) {
 app.post('/hotelesPorEstrella', function (req, res) {
   var body = req.body;
 pool.getConnection(function (err, connection) {
-        connection.query("SELECT * FROM hoteles where star = '?' ", body.star, function (err, rows) {
+        connection.query("SELECT * FROM hoteles where stars = ? ", body.star, function (err, rows) {
             connection.release();
             if (err) throw err;
             console.log(rows.length);

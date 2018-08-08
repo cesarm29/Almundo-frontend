@@ -112,7 +112,7 @@ export class SearchComponent implements OnInit {
 
   //function get hotels for star
   onGetHotelesPorEstrella = function(star) {  
-  this.newService.getHotelesForStar(this.model.star)  
+  this.newService.getHotelesForStar(star)  
   .subscribe(data =>  {  
   	  this.listaHoteles = data;
   	  console.log(this.listaHoteles);	     
