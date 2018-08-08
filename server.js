@@ -49,8 +49,17 @@ pool.getConnection(function (err, connection) {
 });
 
 
-
-
+app.post('/hotelesPorEstrella', function (req, res) {
+  var body = req.body;
+pool.getConnection(function (err, connection) {
+        connection.query("SELECT * FROM hoteles where star = '?' ", body.star, function (err, rows) {
+            connection.release();
+            if (err) throw err;
+            console.log(rows.length);
+            res.send(JSON.stringify(rows));
+        });
+    });
+});
 
 
 // Start the server

@@ -90,8 +90,28 @@ export class SearchComponent implements OnInit {
   , error => this.errorMessage = error )  
   }
 
+   //function get hotels
+  onGetHotelesAll = function() {   
+  this.newService.getHoteles()  
+  .subscribe(data =>  {  
+  	  this.listaHoteles = data;
+  	  console.log(this.listaHoteles);	     
+  }   
+  , error => this.errorMessage = error )  
+  }
+
   //function get hotels for name
   onGetHotelesPorNombre = function(name) {  
+  this.newService.getHotelesForName(this.model.nameHotel)  
+  .subscribe(data =>  {  
+  	  this.listaHoteles = data;
+  	  console.log(this.listaHoteles);	     
+  }   
+  , error => this.errorMessage = error )  
+  }
+
+  //function get hotels for name
+  onGetHotelesPorEstrella = function(name) {  
   this.newService.getHotelesForName(this.model.nameHotel)  
   .subscribe(data =>  {  
   	  this.listaHoteles = data;

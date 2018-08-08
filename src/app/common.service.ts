@@ -24,11 +24,17 @@ export class CommonService {
             .map((response: Response) =>response.json())              
   }
 
-  //service to mongodb save item
-  saveItem(item){      
-    return this.http.post('http://localhost:8080/api/SaveItem/', item)  
+
+  //service to mysql get hotels for star
+  getHotelesForStar(star){ 
+    var body = "star=" + star ;
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });     
+    return this.http.post('http://localhost:3100/hotelesPorEstrella/', body, options)  
             .map((response: Response) =>response.json())              
   }
+
+  
 
 
 

@@ -40,14 +40,14 @@
 			      <span class="pull-right">▲</span>
 			    </ng-template>
 			    <ng-template ngbPanelContent>
-				      <form>
+				      <form (ngSubmit)="onGetHotelesPorEstrella()" #f="ngFormStar" novalidate>
 				      <div class="check">	
 					  <div class="form-check">
-					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck($event)" [checked]="isChecked" >
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck($event)" [checked]="isChecked" ng-click='onGetHotelesAll()' >
 					    <span>Todas las estrellas</span>
 					  </div>
 					  <div class="form-check">
-					    <input type="checkbox" class="form-check-input" id="exampleCheck" (change)="doCheck1($event)" [checked]="isChecked1" >
+					    <input type="checkbox" class="form-check-input" id="exampleCheck" (change)="doCheck1($event)" [checked]="isChecked1" ng-click='onGetHotelesPorEstrella(5)' >
 					    <img id="starcheck" src="./assets/icons/filters/star.svg" />
 						<img id="starcheck" src="./assets/icons/filters/star.svg" />
 						<img id="starcheck" src="./assets/icons/filters/star.svg" />
@@ -56,7 +56,7 @@
 					  </div>
 
 					  <div class="form-check">
-					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck2($event)" [checked]="isChecked2" >
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck2($event)" [checked]="isChecked2" ng-click='onGetHotelesPorEstrella(4)' >
 					    <img id="starcheck" src="./assets/icons/filters/star.svg" />
 						<img id="starcheck" src="./assets/icons/filters/star.svg" />
 						<img id="starcheck" src="./assets/icons/filters/star.svg" />
@@ -64,20 +64,20 @@
 					  </div>
 
 					  <div class="form-check">
-					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck3($event)" [checked]="isChecked3" >
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck3($event)" [checked]="isChecked3" ng-click='onGetHotelesPorEstrella(3)' >
 					    <img id="starcheck" src="./assets/icons/filters/star.svg" />
 						<img id="starcheck" src="./assets/icons/filters/star.svg" />
 						<img id="starcheck" src="./assets/icons/filters/star.svg" />
 					  </div>
 
 					  <div class="form-check">
-					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck4($event)" [checked]="isChecked4" >
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck4($event)" [checked]="isChecked4" ng-click='onGetHotelesPorEstrella(2)' >
 					    <img id="starcheck" src="./assets/icons/filters/star.svg" />
 						<img id="starcheck" src="./assets/icons/filters/star.svg" />
 					  </div>
 
 					  <div class="form-check">
-					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck5($event)" [checked]="isChecked5" >
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck5($event)" [checked]="isChecked5" ng-click='onGetHotelesPorEstrella(1)' >
 					    <img id="starcheck" src="./assets/icons/filters/star.svg" />
 					  </div>
 					  </div>
