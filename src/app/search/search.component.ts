@@ -110,9 +110,9 @@ export class SearchComponent implements OnInit {
   , error => this.errorMessage = error )  
   }
 
-  //function get hotels for name
-  onGetHotelesPorEstrella = function(name) {  
-  this.newService.getHotelesForName(this.model.nameHotel)  
+  //function get hotels for star
+  onGetHotelesPorEstrella = function(star) {  
+  this.newService.getHotelesForStar(this.model.star)  
   .subscribe(data =>  {  
   	  this.listaHoteles = data;
   	  console.log(this.listaHoteles);	     
