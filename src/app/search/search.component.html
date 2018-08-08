@@ -1,0 +1,147 @@
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12" id="header">
+				<img id="almundo-logo" class="svg almundo-link" src="./assets/images/logo-almundo.svg"/>
+			</div>
+		</div>
+	
+		
+		<div class="col-md-4">
+		   <ngb-accordion  activeIds="static-1,static-2">
+			  <ngb-panel   [disabled]="true"  >
+			  	<ng-template ngbPanelTitle id="bloqueo">
+			      <span id="span"><b>Filtros</b></span> 
+			    </ng-template>
+			    <ng-template ngbPanelContent>
+
+			    </ng-template>
+			  </ngb-panel>
+			  <ngb-panel id="static-1">
+			    <ng-template ngbPanelTitle>
+			      <span class="pull-left"><img id="imgSearch" src="./assets/icons/filters/search.svg" /> Nombre de Hotel</span>
+			      <span class="pull-right">▲</span>
+			    </ng-template>
+			    <ng-template ngbPanelContent>
+			     <div class="col-md-12">
+			     	<form (ngSubmit)="onGetHotelesPorNombre()" #f="ngForm" novalidate>
+					  <div class="col-md-8">
+					    <input type="text" class="form-control" id="nameHotel" name="nameHotel" [(ngModel)]="model.nameHotel" #username="ngModel" placeholder="Ingrese el nombre del hotel" >
+					  </div>
+					  <div class="col-md-2">
+					  	<button type="submit" ng-click='onGetHotelesPorNombre()' class="btn btn-primary">Aceptar</button>
+					  </div>
+					</form>
+			     </div>
+			    </ng-template>
+			  </ngb-panel>
+			  <ngb-panel id="static-2" >
+			  	<ng-template ngbPanelTitle>
+			  	  <span class="pull-left"><img id="imgStarFilter" src="./assets/icons/filters/starFilter.svg" /> Estrellas</span>	
+			      <span class="pull-right">▲</span>
+			    </ng-template>
+			    <ng-template ngbPanelContent>
+				      <form>
+				      <div class="check">	
+					  <div class="form-check">
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck($event)" [checked]="isChecked" >
+					    <span>Todas las estrellas</span>
+					  </div>
+					  <div class="form-check">
+					    <input type="checkbox" class="form-check-input" id="exampleCheck" (change)="doCheck1($event)" [checked]="isChecked1" >
+					    <img id="starcheck" src="./assets/icons/filters/star.svg" />
+						<img id="starcheck" src="./assets/icons/filters/star.svg" />
+						<img id="starcheck" src="./assets/icons/filters/star.svg" />
+						<img id="starcheck" src="./assets/icons/filters/star.svg" />
+						<img id="starcheck" src="./assets/icons/filters/star.svg" />
+					  </div>
+
+					  <div class="form-check">
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck2($event)" [checked]="isChecked2" >
+					    <img id="starcheck" src="./assets/icons/filters/star.svg" />
+						<img id="starcheck" src="./assets/icons/filters/star.svg" />
+						<img id="starcheck" src="./assets/icons/filters/star.svg" />
+						<img id="starcheck" src="./assets/icons/filters/star.svg" />
+					  </div>
+
+					  <div class="form-check">
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck3($event)" [checked]="isChecked3" >
+					    <img id="starcheck" src="./assets/icons/filters/star.svg" />
+						<img id="starcheck" src="./assets/icons/filters/star.svg" />
+						<img id="starcheck" src="./assets/icons/filters/star.svg" />
+					  </div>
+
+					  <div class="form-check">
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck4($event)" [checked]="isChecked4" >
+					    <img id="starcheck" src="./assets/icons/filters/star.svg" />
+						<img id="starcheck" src="./assets/icons/filters/star.svg" />
+					  </div>
+
+					  <div class="form-check">
+					    <input type="checkbox" class="form-check-input" id="exampleCheck1" (change)="doCheck5($event)" [checked]="isChecked5" >
+					    <img id="starcheck" src="./assets/icons/filters/star.svg" />
+					  </div>
+					  </div>
+
+					</form>
+			    </ng-template>
+			  </ngb-panel>
+			</ngb-accordion>
+		</div>
+
+		<div class="col-md-4">
+		</div>	
+		<div class="col-md-8">
+		   <div id="hotel"  *ngFor="let item of listaHoteles; let i = index">
+				<div class="col-md-4">
+					<img id="almundo-imagen" class="svg almundo-imagen" src="./assets/images/hotels/{{item.image}}"/>
+				</div>
+				<div class="col-md-4">
+					<h4>{{item.name}}</h4>
+
+					<div *ngIf="item.stars==5" >
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					</div>
+					<div *ngIf="item.stars==4" >
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					</div>
+					<div *ngIf="item.stars==3" >
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					</div>
+					<div *ngIf="item.stars==2" >
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					</div>
+					<div *ngIf="item.stars==1" >
+					<img id="star" src="./assets/icons/filters/star.svg" />
+					</div>
+
+					
+					<img id="amenities0" title="{{item.amenities0}}" src="./assets/icons/amenities/{{item.amenities0}}.svg" />
+					<img id="amenities1" title="{{item.amenities1}}" src="./assets/icons/amenities/{{item.amenities1}}.svg" />
+					<img id="amenities2" title="{{item.amenities2}}" src="./assets/icons/amenities/{{item.amenities2}}.svg" />
+					<img id="amenities3" title="{{item.amenities3}}" src="./assets/icons/amenities/{{item.amenities3}}.svg" />
+					<img id="amenities4" title="{{item.amenities4}}" src="./assets/icons/amenities/{{item.amenities4}}.svg" />
+
+
+				</div>
+				<div id="precios" class="col-md-4">
+					<h5>Precio por noche por</h5>
+					<h5>habitación</h5>
+					<span id="moneda">ARS <span id="valor"><b>{{item.price}}</b></span></span>
+				    <br>
+				    <br>
+					<button type="button" class="btn btn-primary btn-lg btn-block"><b>Ver Hotel</b></button>
+				</div>
+			 </div>
+		</div>
+
+</div>
